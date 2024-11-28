@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import localBirdImage from "../assets/Github.png";
+
+interface Props {
+	title: string;
+	tools?: string;
+	sourse?: string;
+	href?: string;
+}
+
+const { title, tools, sourse, href } = Astro.props;
+---
+
+<li class="link-card">
+	<p>{title} {tools ? <span>•</span> <span>{tools}</span> : null} </p>
+
+	<div class="links">
+		{
+			sourse ? (
+				<a class="sourse-code" href={sourse} target="_blank">
+					<Image
+						width={18}
+						height={18}
+						src={localBirdImage}
+						alt="test"
+					/>
+					<span>Code</span>
+				</a>
+			) : null
+		}
+
+		{
+		href ? (
+				<a class="link2see" href={href} target="_blank">
+					<svg
+						width="23"
+						height="8"
+						viewBox="0 0 23 6"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M1 2.6C0.779086 2.6 0.6 2.77909 0.6 3C0.6 3.22091 0.779086 3.4 1 3.4L1 2.6ZM22.2828 3.28284C22.4391 3.12663 22.4391 2.87337 22.2828 2.71716L19.7373 0.171571C19.581 0.0153615 19.3278 0.0153615 19.1716 0.171571C19.0154 0.327781 19.0154 0.581047 19.1716 0.737257L21.4343 3L19.1716 5.26274C19.0154 5.41895 19.0154 5.67222 19.1716 5.82843C19.3278 5.98464 19.581 5.98464 19.7373 5.82843L22.2828 3.28284ZM1 3.4L22 3.4L22 2.6L1 2.6L1 3.4Z"
+							fill="white"></path>
+					</svg>
+				</a>
+			) : null
+		}
+		
+	</div>
+</li>
+
+<style>
+	.link-card {
+		list-style: none;
+		display: flex;
+		padding: 1px;
+		border: 1px solid #ffffff4b;
+		background-image: none;
+		border-radius: 6px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 15px;
+		transition: transform 0.2s ease-out;
+	}
+	.link-card:hover{
+		transform: translateY(-4px);
+		border: 1px solid var(--main-color);
+	}
+	.link-card p {
+		font-size: 14px;
+	}
+	.link-card span {
+		color: #ffffff88;
+	}
+
+	.links {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+	.sourse-code {
+		text-decoration: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+		background: #1e1e1e;
+		padding: 4px;
+		padding-right: 10px;
+		border-radius: 50px;
+		font-size: 12px;
+	}
+	.sourse-code:hover{
+		background: var(--main-color);
+	}
+	.sourse-code:hover span{
+		color: #000;
+	}
+	.sourse-code img{
+		background: white;
+		padding: 3px;
+		border-radius: 50px;
+	}
+
+	.link2see:hover svg{
+		transform: translateX(3px);
+		transition: 0.2s;
+	}
+</style>

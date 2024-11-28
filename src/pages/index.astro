@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectItem from "../components/ProjectItem.astro";
+
+const currentProjects = [
+	{
+		title: "Fitness web app",
+		tools: "Comming soon!",
+		sourse: "",
+		href: "",
+	}
+];
+const selectedProjects = [
+	{
+		title: "Search-gbook",
+		tools: "TypeScript, Next.js",
+		sourse: "https://github.com/uikromm/search-gbook",
+		href: "https://search-gbook.vercel.app/",
+	},
+	{
+		title: "Portfolio CLI side",
+		tools: "TypeScript",
+		sourse: "https://github.com/uikromm/portfolio-cli-side/",
+		href: "https://portfolio-cli-side-uikromm.vercel.app/",
+	},
+	{
+		title: "F-plus audit",
+		tools: "TypeScript, Next.js, Sanity Studio (CMS)",
+		sourse: "",
+		href: "https://f-plusaudit.uz/",
+	},
+	{
+		title: "Contributed to AllGood e-commerce website",
+		tools: "JavaScript",
+		sourse: "",
+		href: "https://allgood.uz/o-nas",
+	},
+];
+---
+
+<Layout title="Ikrom's Portfolio">
+	<main>
+		<div class="terminal-link">
+			<a href="#" target="_blank">Feeling Geeky?</a>
+		</div>
+
+		<h1 class="hi-txt">Hi, I'm Ikrom 👋</h1>
+		<p class="about-txt">
+			I'm a <span>web developer</span> with over 4 years of
+			experiences. I am currently working with <span>Next.js</span>, <span
+				>TypeScript</span
+			> and <span>Python</span>. Outside of my work I enjoy creating useful things and exploring advancements in AI-powered models.
+		</p>
+
+		<div class="links-group">
+			<a href="https://github.com/uikromm">Github</a>
+			<a href="https://www.linkedin.com/in/uikromm/">Linkdein</a>
+		</div>
+
+		<section class="portfolio">
+			<div class="current-items">
+				<h1 class="project-titles">Current projects</h1>
+				<div class="projects">
+					{
+						currentProjects.map((item) => (
+							<ProjectItem
+								title={item.title}
+								tools={item.tools}
+								sourse={item.sourse}
+								href={item.href}
+							/>
+						))
+					}
+				</div>
+			</div>
+			<div class="selected-items">
+				<h1 class="project-titles">Selected projects</h1>
+				<div class="projects">
+					{
+						selectedProjects.map((item) => (
+							<ProjectItem
+								title={item.title}
+								tools={item.tools}
+								sourse={item.sourse}
+								href={item.href}
+							/>
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 1rem;
+		padding-top: 5.5rem;
+		padding-bottom: 4rem;
+	}
+	.terminal-link a {
+		color: var(--main-color);
+		font-size: 15px;
+		display: inline;
+		font-family: "Inter-Medium";
+	}
+	.hi-txt {
+		font-size: 24px;
+		margin-top: 40px;
+		opacity: 0.9;
+	}
+	.about-txt {
+		margin-top: 30px;
+		max-width: 580px;
+		line-height: 34px;
+		font-size: 15px;
+		color: #ffffffd0;
+	}
+	.about-txt span {
+		color: var(--main-color);
+	}
+	.links-group {
+		margin-top: 40px;
+		display: flex;
+		gap: 2rem;
+	}
+	.links-group a {
+		font-size: 15px;
+		color: #ffffff88;
+		text-decoration: none;
+	}
+	.links-group a:hover {
+		color: var(--main-color);
+	}
+	.portfolio {
+		margin-top: 10em;
+	}
+	.portfolio .project-titles {
+		font-size: 20px;
+		opacity: 0.9;
+		margin-bottom: 30px;
+	}
+	.portfolio .selected-items {
+		margin-top: 60px;
+	}
+
+	.portfolio .projects {
+		display: grid;
+		gap: 25px;
+	}
+</style>

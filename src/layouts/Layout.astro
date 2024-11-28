@@ -1,0 +1,59 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Frontend developer with over 4 years of experiences in Next.js, TypeScript. Outside of my work I like playing the tennis and exploring advancements in AI-powered models."
+		/>
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	@font-face {
+		font-family: "Inter-Medium";
+		src: url("/fonts/Inter-Medium.ttf");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "Inter-Thin";
+		src: url("/fonts/Inter-Thin.ttf");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "Inter-Regular";
+		src: url("/fonts/Inter-Regular.ttf");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	:root {
+		--main-color: #06B6D4;
+	}
+	html {
+		font-family: "Inter-Regular";
+		background: #000000;
+		color: #fff;
+		letter-spacing: 0.2px;
+	}
+</style>
