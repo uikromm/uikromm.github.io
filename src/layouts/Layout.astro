@@ -21,13 +21,18 @@ const { title } = Astro.props;
 		<title>{title}</title>
 
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5TN1Z68BV"></script>
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-N5TN1Z68BV"
+		></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		
-		  gtag('config', 'G-N5TN1Z68BV');
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-N5TN1Z68BV");
 		</script>
 	</head>
 	<body>
@@ -58,12 +63,17 @@ const { title } = Astro.props;
 	}
 
 	:root {
-		--main-color: #06B6D4;
+		--main-color: #1091ed;
 	}
 	html {
 		font-family: "Inter-Regular";
-		background: #000000;
+		background: #171717;
 		color: #fff;
 		letter-spacing: 0.2px;
+	}
+
+	::selection{
+		background: white !important;
+		color: #000;
 	}
 </style>

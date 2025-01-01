@@ -55,14 +55,13 @@ const { title, tools, sourse, href } = Astro.props;
 	.link-card {
 		list-style: none;
 		display: flex;
-		padding: 1px;
 		border: 1px solid #ffffff4b;
 		background-image: none;
 		border-radius: 6px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 15px;
+		padding: 0 14px;
 		transition: transform 0.2s ease-out;
 	}
 	.link-card:hover{
@@ -79,15 +78,15 @@ const { title, tools, sourse, href } = Astro.props;
 	.links {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 	.sourse-code {
 		text-decoration: none;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: 6px;
-		background: #1e1e1e;
+		gap: 5px;
+		background: #212121;
 		padding: 4px;
 		padding-right: 10px;
 		border-radius: 50px;
@@ -104,9 +103,19 @@ const { title, tools, sourse, href } = Astro.props;
 		padding: 3px;
 		border-radius: 50px;
 	}
+	.sourse-code:hover img{
+		transform: rotate(360deg);
+		transition: 0.2s ease-in;
+	}
 
+	.link2see svg{
+		margin-top: 4px;
+		padding: 10px;
+		border-radius: 2px;
+	}
 	.link2see:hover svg{
-		transform: translateX(3px);
+		transform: translateX(3.5px);
+		background: #212121;
 		transition: 0.2s;
 	}
 </style>
