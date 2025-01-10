@@ -1,74 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProjectItem from "../components/ProjectItem.astro";
-
-const currentProjects = [
-	{
-		title: "Financial Sheet",
-		tools: "",
-		sourse: "https://github.com/uikromm/financial-sheet",
-		href: "",
-	},
-];
-const selectedProjects = [
-	{
-		title: "Search-gbook",
-		tools: "TypeScript, Next.js",
-		sourse: "https://github.com/uikromm/search-gbook",
-		href: "https://search-gbook.vercel.app/",
-	},
-	{
-		title: "Portfolio CLI side",
-		tools: "TypeScript",
-		sourse: "https://github.com/uikromm/portfolio-cli-side/",
-		href: "https://portfolio-cli-side.vercel.app/",
-	},
-	{
-		title: "F-plus audit",
-		tools: "TypeScript, Next.js, Sanity Studio (CMS)",
-		sourse: "",
-		href: "https://f-plusaudit.uz/",
-	},
-	{
-		title: "Contributed to AllGood e-commerce website",
-		tools: "JavaScript",
-		sourse: "",
-		href: "https://allgood.uz/o-nas",
-	},
-];
+import { currentProjects, selectedProjects } from "../db/db";
+import { msgs, TERMINAL_LINK } from "../db/msg";
 ---
 
 <Layout title="Ikrom's Portfolio">
 	<main>
 		<div class="terminal-link">
-			<a href="https://portfolio-cli-side.vercel.app/">Feeling Geeky?</a>
+			<a href={TERMINAL_LINK}>{msgs.cli_url_txt}</a>
 		</div>
 
-		<h1 class="hi-txt">Hi, I'm Ikrom 👋</h1>
-		<p class="about-txt">
-			I'm a <span>backend developer</span> with over 4 years of web
-			experiences. I am currently working with <span>Python</span> and
-			<span>JavaScript</span>. I am an avid learner
-			and diligent developer who enjoys working in multidisciplinary
-			teams. Outside of my work I like making useful apps.
-		</p>
+		<h1 class="hi-txt">{msgs.greeting_txt}</h1>
+		<p class="about-txt" set:html={msgs.about_txt} />
 		<hr />
+
 		<ul class="skills-lists">
-			<li>Languages: Python, JavaScript.</li>
-			<li>Frameworks: Django, FastAPI, React.js.</li>
-			<li>Testing: Unittest, Mocho.js.</li>
-			<li>
-				Styling: SCSS with BEM methodology, Material design systems,
-				TailwindCSS.
-			</li>
-			<li>
-				Content management systems: Sanity Studio, Appwrite, Firebase.
-			</li>
-			<li>System version control: Git, GitHub.</li>
+			{
+				msgs.all_skills.map((s) => (
+					<li>
+						{s.title} {s.skills || null}
+					</li>
+				))
+			}
 		</ul>
-		<div class="links-group">
-			<a href="https://github.com/uikromm">Github</a>
-			<a href="https://www.linkedin.com/in/uikromm/">Linkdein</a>
+
+		<div class="social-links">
+			{
+				msgs.social_links.map((link) => (
+					<a href={link.href}>{link.title}</a>
+				))
+			}
 		</div>
 
 		<section class="portfolio">
@@ -118,7 +80,7 @@ const selectedProjects = [
 		border: 1px dashed #ffffff3a;
 		padding: 6px 10px;
 		border-radius: 8px;
-		background: -webkit-linear-gradient(45deg, #06b6d4, #818cf8);
+		background: -webkit-linear-gradient(45deg, #27dddd, #9482f9);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		font-size: 15px;
@@ -141,10 +103,7 @@ const selectedProjects = [
 		max-width: 590px;
 		line-height: 34px;
 		font-size: 15px;
-		color: #ffffffd0;
-	}
-	.about-txt span {
-		color: var(--main-color);
+		color: #ffffffc0;
 	}
 	.skills-lists {
 		margin-left: 20px;
@@ -152,19 +111,19 @@ const selectedProjects = [
 		line-height: 30px;
 		/* list-style: none; */
 		font-size: 15px;
-		color: #ffffffd0;
+		color: #ffffffc0;
 	}
-	.links-group {
+	.social-links {
 		margin-top: 40px;
 		display: flex;
 		gap: 2rem;
 	}
-	.links-group a {
+	.social-links a {
 		font-size: 15px;
-		color: #ffffff88;
+		color: #ffffffc0;
 		text-decoration: none;
 	}
-	.links-group a:hover {
+	.social-links a:hover {
 		color: var(--main-color);
 	}
 	.portfolio {
