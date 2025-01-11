@@ -15,7 +15,7 @@ interface Imsgs {
 export const msgs: Imsgs = {
     cli_url_txt: "Feeling Geeky?",
     greeting_txt: "Hi, I'm Ikrom 👋",
-    about_txt: "I'm a <span style='color: #1091ed;'>frontend developer</span> with over 4 years of web experiences. I am currently working with <span style='color: #1091ed;'>TypeScript</span> and <span style='color: #1091ed;'>React.js</span> . Outside of my work I enjoy playing chess and exploring new places through travel.",
+    about_txt: "I'm a <span style='color: #1091ed;'>frontend developer</span> with over 4 years of web experiences. I work with <span style='color: #1091ed;'>React.js</span> and <span style='color: #1091ed;'>Next.js</span>. Currently, I am broadening my knowledge in back-end development.",
     all_skills: [
         {
             title: "Languages:",
@@ -36,9 +36,6 @@ export const msgs: Imsgs = {
         {
             title: "Content management systems:",
             skills: "Sanity studio."
-        },
-        {
-            title: "I am currently broadening my knowledge in back-end development.",
         }
     ],
     social_links: [
@@ -53,4 +50,4 @@ export const msgs: Imsgs = {
     ]
 }
 
-export const TERMINAL_LINK: string = "https://portfolio-cli-side.vercel.app";
+export const TERMINAL_LINK: string = "https://uikromm-cli-portfolio.vercel.app/";
