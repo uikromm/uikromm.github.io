@@ -2,15 +2,46 @@
 import Layout from "../layouts/Layout.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import { currentProjects, selectedProjects } from "../db/db";
-import { msgs, TERMINAL_LINK } from "../db/msg";
+import { CV_LINK, msgs } from "../db/msg";
+import { Image } from "astro:assets";
+import mouse from "../assets/mouse.svg";
+import clicked from "../assets/clicked.svg";
 ---
 
 <Layout title="Ikrom's Portfolio">
   <main>
+    <div>
+      <Image
+        src={mouse}
+        width={20}
+        height={20}
+        alt="mouse"
+        class="mouse-icon"
+      />
+    </div>
+
+    <script>
+      const cursorIcon = document.querySelector(".mouse-icon") as HTMLElement;
+
+      if (!cursorIcon) throw new Error("Cursor element not found!");
+
+      document.addEventListener("mousemove", (e) => {
+        cursorIcon.style.left = `${e.clientX}px`;
+        cursorIcon.style.top = `${e.clientY}px`;
+        cursorIcon.style.opacity = "1";
+      });
+
+      document.addEventListener("mouseleave", () => {
+        cursorIcon.style.opacity = "0";
+      });
+
+      document.addEventListener("mouseenter", () => {
+        cursorIcon.style.opacity = "1";
+      });
+    </script>
+
     <div class="cv-link">
-      <a
-        href="https://drive.google.com/file/d/17xid_QqR7KTsyRQWngSUXH1hzYm69gDr/view?usp=sharing"
-      >
+      <a href={CV_LINK}>
         {msgs.cv_txt}
       </a>
     </div>
@@ -83,6 +114,16 @@ import { msgs, TERMINAL_LINK } from "../db/msg";
     padding: 1rem;
     padding-top: 5.5rem;
     padding-bottom: 4rem;
+  }
+  .mouse-icon {
+    position: fixed;
+    margin-bottom: 20px;
+    margin-left: -6px;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.2s ease-in;
+    user-select: none;
+    -webkit-user-drag: none;
   }
   .cv-link a {
     font-weight: 600;
