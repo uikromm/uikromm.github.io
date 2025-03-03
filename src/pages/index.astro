@@ -50,17 +50,6 @@ import clicked from "../assets/clicked.svg";
     <p class="about-txt" set:html={msgs.about_txt} />
     <hr />
 
-    <ul class="skills-lists">
-      {
-        msgs.all_skills.map((s) => (
-          <li>
-            <b>{s.title}</b>
-            <span>{s.skills || null}</span>
-          </li>
-        ))
-      }
-    </ul>
-
     <div class="social-links">
       {
         msgs.social_links.map((link) => (
@@ -125,6 +114,12 @@ import clicked from "../assets/clicked.svg";
     user-select: none;
     -webkit-user-drag: none;
   }
+  @media screen and (max-width: 600px) {
+    .mouse-icon {
+      display: none;
+    }
+  }
+
   .cv-link a {
     font-weight: 600;
     border: 1px dashed #ffffff3a;
