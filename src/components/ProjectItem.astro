@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import localBirdImage from "../assets/Github.png";
+import Githubpng from "../assets/Github.png";
 
 interface Props {
 	title: string;
@@ -22,8 +22,8 @@ const { title, tools, sourse, href } = Astro.props;
 					<Image
 						width={18}
 						height={18}
-						src={localBirdImage}
-						alt="test"
+						src={Githubpng}
+						alt="GitHub"
 					/>
 					<span>Code</span>
 				</a>
@@ -75,11 +75,11 @@ const { title, tools, sourse, href } = Astro.props;
 		color: #ffffff88;
 	}
 
-	.links {
+	/* .links {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-	}
+	} */
 	.sourse-code {
 		text-decoration: none;
 		display: flex;
@@ -93,7 +93,7 @@ const { title, tools, sourse, href } = Astro.props;
 		font-size: 12px;
 	}
 	.sourse-code:hover{
-		background: var(--main-color);
+		background: -webkit-linear-gradient(45deg, var(--main-color), #df9755);
 	}
 	.sourse-code:hover span{
 		color: #000;
